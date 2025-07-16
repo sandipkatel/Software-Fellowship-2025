@@ -1,13 +1,11 @@
 import requests
-import os
-from dotenv import load_dotenv
-load_dotenv()
+
 
 def ask_gemini(question):
     """Ask Gemini AI a question and get response"""
     
     # Or Put your Gemini API key here (get it from https://makersuite.google.com/app/apikey)
-    API_KEY = os.getenv('GEMINI_API_KEY')
+    API_KEY = 'GEMINI_API_KEY' # Replace with your actual API key or set it as an environment variable
 
     if not API_KEY:
         return "API key not found. Please set GEMINI_API_KEY environment variable."
