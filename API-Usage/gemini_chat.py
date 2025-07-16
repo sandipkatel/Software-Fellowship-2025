@@ -6,17 +6,14 @@ load_dotenv()
 def ask_gemini(question):
     """Ask Gemini AI a question and get response"""
     
-    # Get API key from environment variable
-
+    # Or Put your Gemini API key here (get it from https://makersuite.google.com/app/apikey)
     API_KEY = os.getenv('GEMINI_API_KEY')
 
     if not API_KEY:
         return "API key not found. Please set GEMINI_API_KEY environment variable."
     
-    # Gemini API endpoint
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
     
-    # Prepare the data to send
     data = {
         "contents": [{
             "parts": [{
@@ -26,13 +23,11 @@ def ask_gemini(question):
     }
     
     try:
-        # Send request to Gemini
         response = requests.post(url, json=data)
         
         if response.status_code == 200:
             result = response.json()
             
-            # Get the AI's answer
             if 'candidates' in result:
                 answer = result['candidates'][0]['content']['parts'][0]['text']
                 return answer
