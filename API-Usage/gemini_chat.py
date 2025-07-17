@@ -1,7 +1,8 @@
 import requests
 
+# 🔐 Replace this with your Gemini API key (get it from https://makersuite.google.com/app/apikey)
 # Paste your API key here directly (for testing only — not safe for production)
-API_KEY = "your-api-key-here"  # 🔐 Replace this with your Gemini API key
+API_KEY = "your_api_key_here" 
 
 def ask_gemini(question):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
